@@ -14,15 +14,15 @@ resource "aws_network_interface" "Spoke1_WinSrv_eth0" {
   }
 }
 
-resource "time_sleep" "Windows_wait_5mins_30seconds" {
+resource "time_sleep" "Windows_wait_3mins" {
   depends_on      = [aws_instance.Spoke_1]
-  create_duration = "330s"
+  create_duration = "180s"
 }
 
 
 resource "aws_instance" "Spoke_1_WinSrv" {
   provider          = aws.virginia
-  depends_on        = [time_sleep.Windows_wait_5mins_30seconds]
+  depends_on        = [time_sleep.Windows_wait_3mins]
   ami               = lookup(var.WinSrv2019_ami, var.virginia_region)
   instance_type     = var.WinSrv_VM_Size
   availability_zone = data.aws_availability_zones.AZs.names[0]
@@ -34,6 +34,7 @@ resource "aws_instance" "Spoke_1_WinSrv" {
     volume_type = "standard"
     volume_size = "30"
   }
+  
   
   network_interface {
     network_interface_id = aws_network_interface.Spoke1_WinSrv_eth0.id

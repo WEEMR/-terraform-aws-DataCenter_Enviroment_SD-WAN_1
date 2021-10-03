@@ -21,12 +21,13 @@ resource "time_sleep" "Windows_wait_5mins_30seconds" {
 
 
 resource "aws_instance" "Spoke_1_WinSrv" {
-  provider = aws.virginia
+  provider          = aws.virginia
   depends_on        = [time_sleep.Windows_wait_5mins_30seconds]
   ami               = lookup(var.WinSrv2019_ami, var.virginia_region)
   instance_type     = var.WinSrv_VM_Size
   availability_zone = data.aws_availability_zones.AZs.names[0]
   key_name          = var.keyname
+  get_password_data = true
   user_data         = data.template_file.Windows_Server2019_Config.rendered
 
   root_block_device {

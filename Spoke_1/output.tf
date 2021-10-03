@@ -21,3 +21,7 @@ output "Spoke1_WebServer_Public" {
 output "Spoke1_Windows_Public" {
   value = aws_route53_record.Spoke1_Windows_Public.fqdn
 }
+
+output "Spoke1_Windows_Password" {
+  value = aws_instance.Spoke_1_WinSrv.password_data
+}

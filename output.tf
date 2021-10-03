@@ -25,3 +25,7 @@ output "Spoke1_Linux_DNS_Name" {
 output "Spoke1_Windows_DNS_Name" {
   value = module.Spoke_1.Spoke1_Windows_Public
 }
+
+output "Spoke1_Windows_Password" {
+  value = module.Spoke_1.Spoke1_Windows_Password
+}

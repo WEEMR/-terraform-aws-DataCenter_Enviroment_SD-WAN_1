@@ -12,15 +12,15 @@ resource "aws_network_interface" "Spoke1_Ubuntu_WebServer_eth0" {
   }
 }
 
-resource "time_sleep" "wait_6mins_30seconds" {
+resource "time_sleep" "wait_5mins_30seconds" {
   depends_on      = [aws_instance.Spoke_1]
-  create_duration = "400s"
+  create_duration = "330s"
 }
 
 
 resource "aws_instance" "Spoke_1_Apache" {
   provider          = aws.virginia
-  depends_on        = [time_sleep.wait_6mins_30seconds]
+  depends_on        = [time_sleep.wait_5mins_30seconds]
   ami               = lookup(var.Ubuntu_WebServer_AMI, var.virginia_region)
   instance_type     = var.Ubuntu_VM_Size
   availability_zone = data.aws_availability_zones.AZs.names[0]
@@ -73,7 +73,7 @@ resource "aws_instance" "Spoke_1_Apache" {
   #
   echo "<html><style>body { font-size: 15px;}</style><body><h1>Hello, Everyone &#128075</h1><h2>This is our Spoke 1 Apache Server created via Terraform &#128079 &#128170; </h2></body></html>" > /var/www/html/index.html
   #
-  #      Install Ubuntu Desktop (GNOME)  
+  #    Install Ubuntu Desktop (GNOME)  
   #
   sudo apt install -y gnome-session gnome-terminal
   #sudo apt-get install -y lxde
@@ -82,6 +82,30 @@ resource "aws_instance" "Spoke_1_Apache" {
   #
   sudo apt install -y firefox
   #
+  #     Install nmap
+  #
+  sudo apt install -y nmap
+  #
+  #     Install elinks browser
+  #
+  sudo apt-get install -y elinks
+  #
+  #     Install fzf file finder
+  #
+  sudo apt-get install -y fzf
+  #
+  #  Install pydf (graphical df)
+  #
+  sudo apt-get install -y pydf
+  #
+  #     Install lynx browser
+  #
+  sudo apt install -y lynx
+  #
+  #     Install iperf
+  #
+  sudo apt install -y iperf
+  #
   #     Enable RDP 
   #
   sudo apt install -y xrdp
@@ -89,7 +113,6 @@ resource "aws_instance" "Spoke_1_Apache" {
   #
   #    Restart the RDP service to enable it
   #
-  sudo apt-get install -y elinks
   sudo systemctl restart xrdp
   sudo reboot
   

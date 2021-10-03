@@ -5,8 +5,8 @@ The module will create the below resources:
 
 - Networking Stack (VPC, Subnets, Route Tables, Security Groups and Internet Gateway) - Please refer to the diagram below. 
 - FortiGate with 3 interfaces (Two Interfaces in two different Public Subnets and one in the Private subnets)
-- Windows Server 2019 Behind the FGT Port 3 [LAN] - (username: user / password: Fortinet123!)
-- Ubunutu Server with Apache installed on it behind the FGT port 3 [LAN] - (username: user / password: Fortinet123!)
+- Windows Server 2019 Behind the FGT Port 3 [LAN]
+- Ubunutu Server with Apache installed on it behind the FGT port 3 [LAN]
 - Route53 DNS Public Hosted Zones
 
 

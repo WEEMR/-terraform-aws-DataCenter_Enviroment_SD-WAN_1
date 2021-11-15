@@ -35,7 +35,7 @@ variable "virginia_region" {
 // -------------------------------------------------------------------------------- Prod VPC CIDR Block
 
 variable "prod_vpc_cidr" {
-  default = "10.150.0.0/16"
+  default = "10.1.0.0/16"
 }
 
 # ------------------------------------------------------------------------------------------------------------
@@ -47,54 +47,48 @@ variable "prod_vpc_cidr" {
 // Subnets 
 
 variable "spoke_1_wan1_subnet_cidr" {
-  description = "Provide the network CIDR for the Prod VPC"
-  default     = "10.150.1.0/24"
+  description = "spoke 1 WAN 1 Subnet CIDR Block"
+  default     = "10.1.1.0/24"
 }
 
 variable "spoke_1_wan2_subnet_cidr" {
-  description = "Provide the Prod VPC Windows network CIDR"
-  default     = "10.150.2.0/24"
+  description = "spoke 1 WAN 2 Subnet CIDR Block"
+  default     = "10.1.2.0/24"
 }
 
 variable "spoke_1_private_subnet_cidr" {
-  description = "Provide the Prod VPC Linux network CIDR"
-  default     = "10.150.3.0/24"
+  description = "spoke 1 LAN Subnet CIDR Block"
+  default     = "10.1.10.0/24"
 }
 
 
 // FGT IPs
 
 variable "spoke_1_wan1_pvt_ip" {
-  description = "Provide the network CIDR for the Prod VPC"
-  default     = ["10.150.1.10"]
+  description = "spoke 1 WAN 1 Interface IP"
+  default     = ["10.1.1.10"]
 }
 
 variable "spoke_1_wan2_pvt_ip" {
-  description = "Provide the network CIDR for the Prod VPC"
-  default     = ["10.150.2.10"]
+  description = "spoke 1 WAN 2 Interface IP"
+  default     = ["10.1.2.10"]
 }
 
 variable "spoke_1_lan_pvt_IP" {
-  description = "Provide the network CIDR for the Prod VPC"
-  default     = ["10.150.3.10"]
+  description = "spoke 1 LAN Interface IP"
+  default     = ["10.1.10.10"]
 }
 
 # Ubuntu
 
 variable "spoke_1_Ubuntu_LAN_IP" {
-  description = "Provide the network CIDR for the Prod VPC"
-  default     = ["10.150.3.20"]
+  description = "spoke 1 Ubunutu IP"
+  default     = ["10.1.10.20"]
 }
 
 # Windows
 
 variable "spoke_1_WinSrv_LAN_IP" {
-  description = "Provide the network CIDR for the Prod VPC"
-  default     = ["10.150.3.25"]
+  description = "spoke 1 Windows Server 2019 IP"
+  default     = ["10.1.10.25"]
 }
-
-# ------------------------------------------------------------------------------------------------------------
-
-#                                                  Spoke 2
-
-# ------------------------------------------------------------------------------------------------------------

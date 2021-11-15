@@ -13,16 +13,6 @@ resource "aws_vpc" "SDWAN_VPC" {
   }
 }
 
-/*
-resource "time_sleep" "wait_60seconds" {
-  create_duration = "60s"
-}
-
-resource "time_sleep" "wait_120seconds" {
-  create_duration = "120s"
-}
-*/
-
 // Get all avaliable AZ's in the region variable
 
 data "aws_availability_zones" "AZs" {

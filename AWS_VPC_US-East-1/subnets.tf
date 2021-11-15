@@ -75,6 +75,3 @@ resource "aws_route_table_association" "virginia_private_RT_association" {
   subnet_id      = aws_subnet.spoke_1_private_subnet.id
   route_table_id = aws_route_table.spoke_1_pvt_rt.id
 }
-
-
-// ------------------------------------------------------------------------------ Spoke 2 Subnets

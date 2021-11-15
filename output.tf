@@ -1,6 +1,6 @@
 # ----------- VPC  ----------- #
 
-output "AWS_US_East_VPC_IP" {
+output "AWS_US_East_VPC_ID" {
     value = module.Prod_VPC.SDWAN_VPC
 }
 

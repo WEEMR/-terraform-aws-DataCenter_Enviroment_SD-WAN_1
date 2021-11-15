@@ -7,6 +7,15 @@ resource "aws_route53_record" "Spoke1_FGT_Public_DNS" {
   records = [aws_eip.Spoke_1_WAN1.public_ip, aws_eip.Spoke_1_WAN2.public_ip]
 }
 
+resource "aws_route53_record" "Spoke1_FGT_SSL_VPN" {
+  provider = aws.virginia
+  zone_id = var.Public_SubHosted_Zone_id
+  name    = "vpn"
+  type    = "A"
+  ttl     = "10"
+  records = [aws_eip.Spoke_1_WAN1.public_ip, aws_eip.Spoke_1_WAN2.public_ip]
+}
+
 resource "time_sleep" "wait_15_seconds_Public" {
   depends_on      = [aws_route53_record.Spoke1_FGT_Public_DNS]
   create_duration = "15s"

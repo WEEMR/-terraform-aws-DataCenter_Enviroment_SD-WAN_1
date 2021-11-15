@@ -121,5 +121,5 @@ variable "Spoke1_Configurations" {
 
 variable "Windows_Server2019_Config" {
   type = string
-  default = "Spoke1_WinSrv_conf"
+  default = "WinSrv_conf"
 }

@@ -42,7 +42,7 @@ resource "aws_instance" "Spoke_1_Apache" {
   systemctl restart sshd
   service sshd restart
   #
-  #TO DO: replace bob with your desired username
+  #     Add New Username based on "var.username"
   #
   useradd ${var.username}
   sudo usermod -aG sudo ${var.username}
@@ -51,7 +51,7 @@ resource "aws_instance" "Spoke_1_Apache" {
   sudo chown -R ${var.username}:${var.username} /home/${var.username}
   cp /etc/skel/.* /home/${var.username}/
   #
-  #TO DO: replace fortinet123! with your desired password and admin with your username
+  #   Configure Password
   #
   yes ${var.Password} | sudo passwd ${var.username}
   #
@@ -73,10 +73,21 @@ resource "aws_instance" "Spoke_1_Apache" {
   #
   echo "<html><style>body { font-size: 15px;}</style><body><h1>Hello, Everyone &#128075</h1><h2>This is our Spoke 1 Apache Server created via Terraform &#128079 &#128170; </h2></body></html>" > /var/www/html/index.html
   #
-  #    Install Ubuntu Desktop (GNOME)  
+  #  Install Net Tools
   #
-  sudo apt install -y gnome-session gnome-terminal
-  #sudo apt-get install -y lxde
+  sudo apt install -y net-tools
+  #
+  #
+  #    Install Ubuntu xface Session Manager (XFACE)  
+  #
+  sudo apt-get install -y xubuntu-desktop
+  #sudo apt install -y lxqt sddm
+  #sudo apt-get remove -y gdm3
+  #sudo apt autoremove -y
+  #
+  #    Set LXQT as the default display manager 
+  #
+  #sudo dpkg-reconfigure lxqt
   #
   #     Install Firefox
   #
@@ -115,7 +126,10 @@ resource "aws_instance" "Spoke_1_Apache" {
   #
   sudo systemctl restart xrdp
   sudo reboot
-  
+  #
+  #
+
+
   EOF
 
   tags = {

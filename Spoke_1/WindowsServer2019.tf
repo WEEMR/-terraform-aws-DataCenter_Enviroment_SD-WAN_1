@@ -41,7 +41,6 @@ resource "aws_instance" "Spoke_1_WinSrv" {
     device_index         = 0
   }
 
-
   tags = {
     Name = "${var.username}_TF_Spoke_1_WinSrv2019"
   }

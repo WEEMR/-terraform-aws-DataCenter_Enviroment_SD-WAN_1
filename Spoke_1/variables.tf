@@ -63,10 +63,10 @@ variable "spoke_1_WinSrv_LAN_IP" {}
 # FortiGate AMI
 
 variable "FGT_VM_AMI" {
-  description = "FortiGate FGTVM-AWS(PAYG) - 7.0 AMI"
+  description = "FortiGate FGTVM-AWS(PAYG) - 7.0.3 AMI"
   type        = map
   default = {
-    us-east-1 = "ami-01a54d044634cf0f6"
+    us-east-1 = "ami-099e9f57e31ec423c"
   }
 }
 
@@ -121,5 +121,5 @@ variable "Spoke1_Configurations" {
 
 variable "Windows_Server2019_Config" {
   type = string
-  default = "WinSrv_conf"
+  default = "./WinSrv_conf"
 }

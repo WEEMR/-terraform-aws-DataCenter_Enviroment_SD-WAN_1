@@ -8,7 +8,7 @@ resource "aws_subnet" "spoke_1_wan1_subnet" {
   provider          = aws.virginia
   vpc_id            = aws_vpc.SDWAN_VPC.id
   cidr_block        = var.spoke_1_wan1_subnet_cidr
-  availability_zone = data.aws_availability_zones.AZs.names[1]
+  availability_zone = data.aws_availability_zones.AZs.names[0]
   tags = {
     Name       = "${var.username}_Terraform_SDAWN_Spoke_1_WAN_1"
     reference  = "spoke_1_wan1_subnet" 
@@ -23,7 +23,7 @@ resource "aws_subnet" "spoke_1_wan2_subnet" {
   provider          = aws.virginia
   vpc_id            = aws_vpc.SDWAN_VPC.id
   cidr_block        = var.spoke_1_wan2_subnet_cidr
-  availability_zone = data.aws_availability_zones.AZs.names[1]
+  availability_zone = data.aws_availability_zones.AZs.names[0]
   tags = {
     Name       = "${var.username}_Terraform_SDAWN_Spoke_1_WAN_2"
     reference  = "spoke_1_wan2_subnet" 
@@ -55,7 +55,7 @@ resource "aws_subnet" "spoke_1_private_subnet" {
   provider          = aws.virginia
   vpc_id            = aws_vpc.SDWAN_VPC.id
   cidr_block        = var.spoke_1_private_subnet_cidr
-  availability_zone = data.aws_availability_zones.AZs.names[1]
+  availability_zone = data.aws_availability_zones.AZs.names[0]
   tags = {
     Name       = "${var.username}_Terraform_SDAWN_Spoke_1_Private_Subnet"
     reference  = "spoke_1_private_subnet" 
